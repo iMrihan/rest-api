@@ -5,6 +5,8 @@ const facultyRoute = require("./api/routes/faculty");
 
 const mongoose = require("mongoose");
 
+const bodyParser = require("body-parser");
+
 mongoose.connect(
   "mongodb+srv://Imrihan:Imrihan@mrk.0vudv.mongodb.net/?retryWrites=true&w=majority"
 );
@@ -16,6 +18,9 @@ mongoose.connection.on("error", (error) => {
 mongoose.connection.on("connected", (connected) => {
   console.log("connected with database...");
 });
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use("/student", studentRoute);
 app.use("/faculty", facultyRoute);

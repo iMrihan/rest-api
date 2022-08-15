@@ -11,7 +11,6 @@ router.get("/", (req, res, next) => {
 
 router.post("/", (req, res, next) => {
   const student = new Student({
-    _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     email: req.body.email,
     phone: req.body.phone,
