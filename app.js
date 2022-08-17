@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const studentRoute = require("./api/routes/student");
 const facultyRoute = require("./api/routes/faculty");
+const userRoute = require("./api/routes/user");
 
 const mongoose = require("mongoose");
 
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 
 app.use("/student", studentRoute);
 app.use("/faculty", facultyRoute);
+app.use("/user", userRoute);
 app.use((req, res, next) => {
   res.status(404).json({
     message: "bad request",
